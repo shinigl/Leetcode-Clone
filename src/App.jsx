@@ -1,13 +1,12 @@
-import styles from './App.module.css'
-import Card from './components/Card'
+import styles from './App.module.css';
+import Card from './components/Card';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { myContext } from './main';
-import leetcodeLogo from './assets/logo.png'
+import leetcodeLogo from './assets/logo.png';
 
 function App() {
   const ctx = useContext(myContext);
-  console.log(ctx);
 
   return (
     <>
@@ -17,9 +16,9 @@ function App() {
             <img src={leetcodeLogo} alt="logo" />
             <p>Leetcode</p>
           </div>
-          <button>Sign In</button>
+          <button id={styles.signInBtn}>Sign In</button>
         </header>
-        
+
         <div className={styles.search}>
           <input type="text" placeholder="Search" />
           <select name="Difficulty" id="" placeholder="Difficulty">
@@ -30,12 +29,11 @@ function App() {
         </div>
 
         <div className={styles.cardList}>
-        <div style={{display:'flex',justifyContent:'space-around', height: '50px',
-      alignItems: 'center' , backgroundColor:'#2a2a2a'}}>
-         <p>Serial No.</p>
-         <p>Problem Name</p>
-         <p>Difficulty</p>
-    </div>
+          <div className={styles.probHeader}>
+            <div className={styles.sr}><p>Number</p></div>
+            <div className={styles.problem}><p>Problem</p></div>
+            <div className={styles.difficulty}><p>Difficulty</p></div>
+          </div>
           {ctx.map((ele, idx) => (
             <Link key={idx} to={`/interface/${ele.Sr}/${ele.Title}`} className={styles.cardLink}>
               <Card data={ele} />

@@ -51,6 +51,40 @@ main {
   color: #fff;
 }
 
+/* Problem Header */
+.probHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding: 0 20px;
+  background-color: #2a2a2a;
+  color: #ffa116;
+  border-radius: 8px;
+}
+
+.sr {
+  flex-basis: 20%;
+  padding: 0 20px;
+}
+
+.problem {
+  flex-basis: 50%;
+  text-align: center;
+ 
+}
+
+.difficulty {
+  flex-basis: 20%;
+  text-align: center;
+}
+
+
+#signInBtn{
+    color: #ffa116;
+    background-color: #ffa21621;
+}
+
 .search {
   display: flex;
   gap: 15px;
@@ -60,13 +94,14 @@ main {
 }
 
 .search input {
-  padding: 10px;
+  padding: 10px 10px;
   width: 250px;
   border: 1px solid #444444;
   border-radius: 4px;
   font-size: 14px;
   background-color: #333333;
   color: #eaeaea;
+  border-radius: 18px;
 }
 
 .search input::placeholder {
@@ -74,19 +109,22 @@ main {
 }
 
 .search select {
-  padding: 10px;
+  padding: 10px 8px;
   width: 150px;
   border: 1px solid #444444;
   border-radius: 4px;
   font-size: 14px;
   background-color: #333333;
   color: #eaeaea;
+  border-radius: 18px;
 }
 
 .search select option {
   background-color: #333333;
   color: #eaeaea;
 }
+
+
 
 h1 {
   margin-top: 40px;

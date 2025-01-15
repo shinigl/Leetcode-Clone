@@ -1,0 +1,39 @@
+.card {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px 20px;
+    border-bottom: 1px solid #444444;
+    background-color: #333; 
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .sr {
+    flex-basis: 20%;
+    text-align: center;
+  }
+  
+  .title {
+    display: flex;              
+    justify-content: center;    
+    align-items: center;        
+    flex-basis: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+  }
+  
+  .difficulty {
+    flex-basis: 20%;
+    text-align: center;
+  }
+  
+  /* Text Styling */
+  .card p {
+    margin: 0;
+    color: #eaeaea;
+  }
+  
