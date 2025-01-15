@@ -12,7 +12,7 @@ function App() {
     <>
       <main>
         <header className={styles.navBar}>
-          <div>
+          <div >
             <img src={leetcodeLogo} alt="logo" />
             <p>Leetcode</p>
           </div>
