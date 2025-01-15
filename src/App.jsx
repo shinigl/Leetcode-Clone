@@ -70,11 +70,18 @@ function App() {
             <div className={styles.problem}><p>Problem</p></div>
             <div className={styles.difficulty}><p>Difficulty</p></div>
           </div>
-          {filteredProbs.map((ele, idx) => (
+          {
+          filteredProbs.length > 0 ? (
+          filteredProbs.map((ele, idx) => (
             <Link key={idx} to={`/interface/${ele.Sr}/${ele.Title}`} className={styles.cardLink}>
               <Card data={ele} />
             </Link>
-          ))}
+          ))
+          ) : (
+            <p>No such problems available</p>
+          ) 
+          
+          }
         </div>
       </main>
     </>
