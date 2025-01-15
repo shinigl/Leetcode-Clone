@@ -14,7 +14,7 @@ body {
 }
 
 main {
-  max-width: 1300px;
+  max-width: 1200px;
   margin: auto;
   padding: 20px;
   height: 100vh;
@@ -103,6 +103,7 @@ main {
   background-color: #333333;
   color: #eaeaea;
   border-radius: 18px;
+  outline: none;
 }
 
 .search input::placeholder {
@@ -118,6 +119,7 @@ main {
   background-color: #333333;
   color: #eaeaea;
   border-radius: 18px;
+  outline: none;
 }
 
 .search select option {
@@ -159,9 +161,7 @@ h1 {
     width: 100%;
   }
 
-  .search {
-    
-  }
+
   .sr , .problem , .difficulty{
     font-size: 12px;
   }
