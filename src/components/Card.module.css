@@ -36,4 +36,8 @@
     margin: 0;
     color: #eaeaea;
   }
-  
+  @media  screen and (max-width:768px) {
+    .sr , .title , .difficulty{
+        font-size: 12px;
+      }
+  }
