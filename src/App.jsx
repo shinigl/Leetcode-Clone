@@ -1,94 +1,50 @@
-
-import {createBrowserRouter, RouterProvider} from 'react-router-dom' ;
-import './App.css'
+import styles from './App.module.css'
 import Card from './components/Card'
-import Interface from './components/Interface';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { myContext } from './main';
+import leetcodeLogo from './assets/logo.png'
 
 function App() {
-
-  const problemsArray = [
-    {
-      "Sr": 1,
-      "Title": '3Sum',
-      "Difficulty": 'Easy',
-      'description': 'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
-      
-      'example': {
-        'ex1': {
-          'Input': 'nums = [2,7,11,15], target = 9',
-          'Output': '[1,2]'
-        },
-        'ex2': {
-          'Input': 'nums = [3,3], target = 6',
-          'Output': '[0,1]'
-        }
-      }
-    },
-    
-    {
-      "Sr": 2,
-      "Title": '4Sum',
-      "Difficulty": 'Hard',
-      'description': 'Given an array of integers nums and an integer target, answer in any order.',
-      
-      'example': {
-        'ex1': {
-          'Input': 'nums = [2,7,11,15], target = 9',
-          'Output': '[1,2]'
-        },
-        'ex2': {
-          'Input': 'nums = [3,3], target = 6',
-          'Output': '[0,1]'
-        }
-      }
-    },
-    {
-      "Sr": 3,
-      "Title": '5Sum',
-      "Difficulty": 'Hard',
-      'description': 'Given an ',
-      
-      'example': {
-        'ex1': {
-          'Input': 'nums = [2,7,11,15], target = 9',
-          'Output': '[1,2]'
-        },
-        'ex2': {
-          'Input': 'nums = [3,3], target = 6',
-          'Output': '[0,1]'
-        }
-      }
-    },
-
-
-  ]
-
+  const ctx = useContext(myContext);
+  console.log(ctx);
 
   return (
     <>
-    
-      <h1>Problems</h1>
-      <div className="search">
+      <main>
+        <header className={styles.navBar}>
+          <div>
+            <img src={leetcodeLogo} alt="logo" />
+            <p>Leetcode</p>
+          </div>
+          <button>Sign In</button>
+        </header>
+        
+        <div className={styles.search}>
+          <input type="text" placeholder="Search" />
+          <select name="Difficulty" id="" placeholder="Difficulty">
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+          </select>
+        </div>
 
-        <input type="text" placeholder='Search' />
-        <select name="Difficulty" id="" placeholder='Difficulty'>
-          <option value="Easy">Easy</option>
-          <option value="Medium">Medium</option>
-          <option value="Hard">Hard</option>
-
-        </select>
-      </div>
-      {
-        problemsArray.map((ele, idx) => {
-          return (
-           <Link to='/interface/' > <Card  data={ele} /> </Link>
-          )
-        })
-      }
-    
+        <div className={styles.cardList}>
+        <div style={{display:'flex',justifyContent:'space-around', height: '50px',
+      alignItems: 'center' , backgroundColor:'#2a2a2a'}}>
+         <p>Serial No.</p>
+         <p>Problem Name</p>
+         <p>Difficulty</p>
+    </div>
+          {ctx.map((ele, idx) => (
+            <Link key={idx} to={`/interface/${ele.Sr}/${ele.Title}`} className={styles.cardLink}>
+              <Card data={ele} />
+            </Link>
+          ))}
+        </div>
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

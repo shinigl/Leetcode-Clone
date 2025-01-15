@@ -1,17 +1,74 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { myContext } from '../main';
+import { useParams } from 'react-router-dom';
+import { useState } from 'react';
+
 
 function Interface() {
+
+const [btn1,setBtn1] = useState(false) ;
+const [btn2,setBtn2] = useState(false) ;
+const [btn3,setBtn3] = useState(false) ;
+
+
+
+
+function btn1Click(){
+  
+    if(!btn1){
+        setBtn1(true);
+        setBtn2(false);
+        setBtn3(false);
+    }
+}
+function btn2Click(){
+  
+    if(!btn2){
+        setBtn1(false);
+        setBtn2(true);
+        setBtn3(false);
+    }
+}
+function btn3Click(){
+  
+    if(!btn3){
+        setBtn1(false);
+        setBtn2(false);
+        setBtn3(true);
+    }
+}
+
+
+
+const {id,name} = useParams() ;    
+
+const ctx = useContext(myContext);
+
+const prob = ctx.find((ele)=> ele.Sr === parseInt(id)) //filtered problem
+console.log(prob);
+
+
+
   return (
     <div className='interfaceContainer' style={{display:'flex',width:'100%',height:'100vh' ,justifyContent:'space-around'}}>
       
       <div className="leftInt" style={{width:'40%'}}>
-         <h2>2Sum</h2> 
-         <span style={{color:'green'}} >Easy</span>
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus consequuntur sit doloremque dicta corporis temporibus iste dolor, exercitationem rem nemo maxime expedita labore magnam? Ipsum, vel! Aspernatur unde explicabo mollitia quo eos repudiandae ex!</p>
+         <h2>{prob.Title}</h2> 
+         <span style={{color:'green'}} >{prob.Difficulty}</span>
+         <p>{prob.description}</p>
          <div className='eg'>
-            <p>Example 1:</p>
-             <p>Input : nums = [2,7,11,15], target = 9</p>
-             <p>Output : [0,1]</p>
+            {
+                prob.example.map((ele,idx)=>{
+                    return(
+                        <div key={idx}>
+                    
+                          <p>Example : {idx}</p>
+                          <p>Input : {ele.Input}</p>
+                          <p>Output : {ele.Output}</p>
+                        </div>
+                    )
+                })
+            }
          </div>
          <div className="constraints">
             <p>Constraints:</p>
@@ -28,13 +85,28 @@ function Interface() {
          <div className='testCase'>
               <h3>Testcase</h3>
               <div className="cases">
-                <button>Case 0</button>
-                <button>Case 1</button>
-                <button>Case 2</button>
+                <button onClick={btn1Click}>Case 0</button>
+                <button onClick={btn2Click} >Case 1</button>
+                <button onClick={btn3Click} >Case 2</button>
               </div>
               <div className="inout">
-                  <p>nums = [2,4,5,6] , target = 3</p>
-                  <p>[0,1]</p>
+                {
+                    btn1 ? (
+                        <>
+                          <p>{prob.example[0].Input}</p>
+                
+                        </>
+                    ) : btn2 ? (
+                        <>
+                        <h1>Bye</h1>
+                        </>
+                    ) : btn3 ? (
+                        <>
+                        <h1>Bye bye</h1>
+                        </>
+                    ) : (  prob.example[0].Input  )
+
+}
               </div>
               
          </div>
