@@ -1,132 +1,244 @@
-/* General styles for the interface layout */
 .interfaceContainer {
-    display: flex;
-    width: 100%;
-    height: 100vh;
-    justify-content: space-around;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
-  .leftInt {
-    width: 40%;
-    padding-right: 20px;
-    overflow-y: auto;
-  }
-  
-  .rightInt {
-    width: 55%;
-    padding-left: 20px;
-    background-color: #2c2f33;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    overflow-y: auto;
-  }
-  
-  h2 {
-    font-size: 28px;
-    font-weight: 600;
-    color: #eaeaea;
-    margin-bottom: 10px;
-  }
-  
-  .difficulty {
-    font-size: 18px;
-    color: #4e9af1;
-    font-weight: 500;
-  }
-  
-  .eg {
-    margin-bottom: 20px;
-  }
-  
-  .eg p {
-    color: #eaeaea;
-  }
-  
-  .constraints {
-    background-color: #444;
-    padding: 10px;
-    border-radius: 8px;
-    margin-top: 30px;
-  }
-  
-  .constraints p {
-    color: #eaeaea;
-    font-size: 16px;
-    margin-bottom: 5px;
-  }
-  
-  /* Button styling for the test cases */
-  .testCase {
-    margin-top: 20px;
-  }
-  
-  .cases button {
-    padding: 10px 20px;
-    background-color: #4e9af1;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    margin-right: 10px;
-    font-size: 16px;
-    transition: background-color 0.3s;
-  }
-  
-  .cases button:hover {
-    background-color: #3d7db5;
-  }
-  
-  /* Code area styles */
-  .codeArea {
-    margin-top: 30px;
-  }
-  
-  .codeAreaTextarea {
-    width: 100%;
-    min-height: 60vh;
-    padding: 15px;
-    background-color: #2a2a2a;
-    border: 1px solid #444;
-    border-radius: 8px;
-    color: #eaeaea;
-    font-family: 'Courier New', monospace;
-    font-size: 16px;
-    line-height: 1.6;
-    resize: vertical;
-    transition: border-color 0.3s ease;
-  }
-  
-  .codeAreaTextarea:focus {
-    border-color: #4e9af1;
-    outline: none;
-  }
-  
-  /* Test case input area */
-  .inout {
-    background-color: #333;
-    padding: 20px;
-    border-radius: 8px;
-    margin-top: 30px;
-  }
-  
-  .inout p {
-    color: #eaeaea;
-    font-size: 16px;
-    margin-bottom: 5px;
-  }
-  
-  .inout h1 {
-    color: #eaeaea;
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  /* Style for selected test case button */
-  .cases button.selected {
-    background-color: #3d7db5;
-    transition: background-color 0.3s;
-  }
-  
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: space-between;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Header container */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2c2f33;
+  padding: 0 30px;
+  height: 8vh; 
+  box-sizing: border-box;
+  color: #eaeaea;
+}
+
+/* Left Section (Logo + Problem List) */
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 25px; /* Added gap between logo and "Problem List" */
+}
+
+.logo {
+  width: 40px; /* Set logo size */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Problem List Text */
+.problemList {
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.arrow {
+  margin-left: 10px;
+  font-size: 10px; 
+  color: #fff;
+  border: 0.25px solid #fff;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Middle Section (Submit & Run buttons) */
+.headerMiddle {
+  display: flex;
+  gap: 20px;
+}
+
+.headerMiddle button {
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #4e9af1;
+  border: none;
+  border-radius: 5px;
+  color: #fff; /* Set text color of buttons to white */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.headerMiddle button:hover {
+  background-color: #3d7db5;
+}
+
+/* Right Section (Sign-in button) */
+.headerRight {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.headerRight button {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #f8615c;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.headerRight button:hover {
+  background-color: #d25a51;
+}
+
+
+.leftInt {
+  width: 40%;
+  padding-right: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.upperPart {
+  display: flex;
+  flex-direction: column;
+}
+
+.difficulty {
+  border: 1px solid #fff;
+  width: fit-content;
+  padding: 0.5px 8px;
+  border-radius: 20px;
+}
+
+.rightInt {
+  width: 55%;
+  padding-left: 20px;
+  background-color: #2c2f33;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  overflow-y: auto;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #eaeaea;
+  margin-bottom: 5px;
+}
+
+.difficulty {
+  font-size: 18px;
+  color: #4e9af1;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.description {
+  margin-bottom: 30px;
+}
+
+.eg {
+  margin-bottom: 40px;
+}
+
+.eg p {
+  color: #eaeaea;
+  margin-bottom: 10px;
+}
+
+.constraints {
+  background-color: #444;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+.constraints p {
+  color: #eaeaea;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.testCase {
+  margin-top: 40px;
+}
+
+.cases button {
+  padding: 12px 25px;
+  background-color: #4e9af1;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  margin-right: 15px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.cases button:hover {
+  background-color: #3d7db5;
+}
+
+.easy {
+  color: #46c6c2;
+}
+
+.medium {
+  color: #fac31d;
+}
+
+.hard {
+  color: #f8615c;
+}
+
+.codeArea {
+  margin-top: 40px;
+}
+
+.codeAreaTextarea {
+  width: 100%;
+  min-height: 60vh;
+  padding: 20px;
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+  border-radius: 8px;
+  color: #eaeaea;
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  line-height: 1.6;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+}
+
+.codeAreaTextarea:focus {
+  border-color: #4e9af1;
+  outline: none;
+}
+
+.inout {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 40px;
+}
+
+.inout p {
+  color: #eaeaea;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.inout h1 {
+  color: #eaeaea;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.cases button.selected {
+  background-color: #3d7db5;
+  transition: background-color 0.3s;
+}

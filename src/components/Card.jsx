@@ -9,7 +9,6 @@ function Card(props) {
   
   const{Difficulty, Sr , Title} = props.data 
 
-  //Dynamic styling for Difficulty Text
   let difficultyClass = '';
   if (Difficulty === 'Easy') {
     difficultyClass = styles.easy;
