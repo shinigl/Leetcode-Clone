@@ -1,10 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useRef, useEffect } from 'react';
 import { myContext } from '../main';
 import { Link, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'; 
 import styles from './Interface.module.css';
 import logo from '../assets/logo.png';
+import * as monaco from 'monaco-editor';
 
 function Interface() {
   const [btn1, setBtn1] = useState(false);
@@ -14,7 +15,28 @@ function Interface() {
   const { id, name } = useParams();
   const ctx = useContext(myContext);
   const prob = ctx.find((ele) => ele.Sr === parseInt(id));
-  console.log(prob);
+
+  const monacoRef = useRef(null); // Reference to Monaco container
+  const [editor, setEditor] = useState(null);
+
+  useEffect(() => {
+    if (monacoRef.current && !editor) {
+      const monacoEditor = monaco.editor.create(monacoRef.current, {
+        value: `function ${prob.Title.replace(/\s+/g, '')} {\n  // Write your code here\n}`,
+        language: "javascript",  
+        theme: "vs-dark", 
+        automaticLayout: true, 
+        minimap: { enabled: false },
+      });
+      setEditor(monacoEditor);
+    }
+
+    return () => {
+      if (editor) {
+        editor.dispose(); // Cleanup on component unmount
+      }
+    };
+  }, [editor]);
 
   function btn1Click() {
     if (!btn1) {
@@ -49,10 +71,10 @@ function Interface() {
           <div className={styles.problemList}>
             <Link to='/'> Problem List </Link>
             <button className={styles.arrow}>
-              <FontAwesomeIcon icon={faArrowLeft} /> {/* FontAwesome left arrow */}
+              <FontAwesomeIcon icon={faArrowLeft} />
             </button>
             <button className={styles.arrow}>
-              <FontAwesomeIcon icon={faArrowRight} /> {/* FontAwesome right arrow */}
+              <FontAwesomeIcon icon={faArrowRight} />
             </button>
           </div>
         </div>
@@ -83,7 +105,7 @@ function Interface() {
             {prob.example.map((ele, idx) => {
               return (
                 <div key={idx}>
-                  <p>Example: {idx+1}</p>
+                  <p>Example: {idx + 1}</p>
                   <p>Input: {ele.Input}</p>
                   <p>Output: {ele.Output}</p>
                 </div>
@@ -98,10 +120,8 @@ function Interface() {
 
         <div className={styles.rightInt}>
           <div className={styles.codeArea}>
-            <textarea
-              className={styles.codeAreaTextarea}
-              placeholder="function TwoSum(nums, target) {}"
-            ></textarea>
+            {/* Monaco Editor container */}
+            <div ref={monacoRef} style={{ height: "400px", width: "100%" }}></div>
           </div>
 
           <div className={styles.testCase}>
@@ -134,11 +154,11 @@ function Interface() {
                 </>
               ) : btn2 ? (
                 <>
-                  <h1>Bye</h1>
+                  <p>{prob.example[1].Input}</p>
                 </>
               ) : btn3 ? (
                 <>
-                  <h1>Bye bye</h1>
+                  <p>{prob.example[2].Input}</p>
                 </>
               ) : (
                 prob.example[0].Input
