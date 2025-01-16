@@ -73,7 +73,7 @@ function App() {
           {
           filteredProbs.length > 0 ? (
           filteredProbs.map((ele, idx) => (
-            <Link key={idx} to={`/interface/${ele.Sr}/${ele.Title}`} className={styles.cardLink}>
+            <Link key={idx} to={`/interface/${ele.Sr}`} className={styles.cardLink}>
               <Card data={ele} />
             </Link>
           ))

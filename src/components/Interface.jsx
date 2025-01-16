@@ -1,6 +1,6 @@
 import React, { useContext, useState, useRef, useEffect } from 'react';
 import { myContext } from '../main';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams ,useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'; 
 import styles from './Interface.module.css';
@@ -12,8 +12,23 @@ function Interface() {
   const [btn2, setBtn2] = useState(false);
   const [btn3, setBtn3] = useState(false);
 
-  const { id, name } = useParams();
+  const { id } = useParams();
+  const [page, setPage] = useState(null); // Initialize state with `null` or a default value
+
+  useEffect(() => {
+    // Ensure page is set after URL parameter (`id`) is available
+    if (id) {
+      const numberId = parseInt(id);
+      setPage(numberId); // Set the page state when the id is available
+    }
+  }, [id]); // Re-run this effect whenever `id` changes
+
+  
+
+
+  const navigate = useNavigate()
   const ctx = useContext(myContext);
+  
   const prob = ctx.find((ele) => ele.Sr === parseInt(id));
 
   const monacoRef = useRef(null); // Reference to Monaco container
@@ -62,6 +77,27 @@ function Interface() {
 
   const difficultyClass = prob.Difficulty.toLowerCase();
 
+  function onNextPage(){
+     
+     if(page < ctx.length){
+     const nextPage = parseInt(page)+1 ;
+     setPage(nextPage);
+     navigate(`/interface/${nextPage}`)
+     }
+
+
+  }
+  function onPrevPage(){
+     if(page != 1){
+     const PrePage = parseInt(page)-1 ;
+      setPage(PrePage);
+
+      navigate(`/interface/${PrePage}`)
+     }
+  }
+
+  
+
   return (
     <>
       <header className={styles.header}>
@@ -70,11 +106,11 @@ function Interface() {
           <img className={styles.logo} src={logo} alt="Logo" />
           <div className={styles.problemList}>
             <Link to='/'> Problem List </Link>
-            <button className={styles.arrow}>
-              <FontAwesomeIcon icon={faArrowLeft} />
+            <button className={styles.arrow} onClick={onPrevPage}>
+              <FontAwesomeIcon icon={faArrowLeft}  />
             </button>
-            <button className={styles.arrow}>
-              <FontAwesomeIcon icon={faArrowRight} />
+            <button className={styles.arrow} onClick={onNextPage}>
+              <FontAwesomeIcon icon={faArrowRight}  />
             </button>
           </div>
         </div>

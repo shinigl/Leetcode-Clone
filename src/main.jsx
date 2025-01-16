@@ -17,7 +17,7 @@ const routes = createBrowserRouter([
     element : <App/>
   },
   {
-    path: '/interface/:id/:name',
+    path: '/interface/:id',
     element : <Interface/>
   }
 
