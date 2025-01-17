@@ -1,7 +1,7 @@
 import React from 'react';
 import { useContext } from 'react';
 import { myContext } from '../main';
-import styles from './Card.module.css';
+import styles from '../styles/Card.module.css';
 
 function Card(props) {
   

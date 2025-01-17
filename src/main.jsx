@@ -1,11 +1,11 @@
 
 import { createRoot } from 'react-dom/client'
-import './index.css'
+import './styles/index.css'
 import App from './App.jsx'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom' ;
-import Card from './components/Card'
 import Interface from './components/Interface';
 import { createContext } from 'react';
+import Header from './components/Header.jsx';
 
 
 export const myContext = createContext() ;
@@ -26,7 +26,7 @@ const routes = createBrowserRouter([
 const problemsArray = [
   {
     "Sr": 1,
-    "Title": '3Sum',
+    "Title": 'Three Sum',
     "Difficulty": 'Easy',
     "description": 'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.',
     "example": [
@@ -39,7 +39,7 @@ const problemsArray = [
 
   {
     "Sr": 2,
-    "Title": '4Sum',
+    "Title": 'Four Sum',
     "Difficulty": 'Hard',
     "description": 'Given an array of integers nums and an integer target, return all unique quadruplets [nums[a], nums[b], nums[c], nums[d]] such that a, b, c, and d are distinct indices and nums[a] + nums[b] + nums[c] + nums[d] == target.',
     "example": [

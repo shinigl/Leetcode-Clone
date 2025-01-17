@@ -1,4 +1,4 @@
-import styles from './App.module.css';
+import styles from './styles/App.module.css'
 import Card from './components/Card';
 import { Link } from 'react-router-dom';
 import { useContext , useState } from 'react';
