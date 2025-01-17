@@ -42,6 +42,10 @@
   .arrow:hover {
     background-color: #444;
   }
+
+  .arrow:focus{
+    outline: none;
+  }
   
   /* Header Middle */
   .headerMiddle {
@@ -49,21 +53,28 @@
     gap: 20px;
   }
   
-  .headerMiddle button {
+  .headerMiddle button:nth-child(1) {
     padding: 4px 16px;
     font-size: 16px;
     font-weight: 500;
-    background-color: #f4a261; /* Goldenrod color */
+    background-color: #444444; 
     border: none;
-    border-radius: 20px;
-    color: #fff;
+    border-radius: 8px;
+    color: #28c244;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: 0.3s ease;
     outline: none;
+  }
+
+  .headerMiddle button:nth-child(2){
+    background-color: #444444; 
+    border: none;
+    color: #fff;
+    transition: 0.3s ease;
   }
   
   .headerMiddle button:hover {
-    background-color: #e76f51;
+    background-color: #545353;
   }
   
   /* Header Right */
@@ -75,8 +86,8 @@
   .headerRight button {
     padding: 8px 16px;
     font-size: 16px;
-    background-color: #f8615c; /* Red for Sign In */
-    color: #fff;
+    color: #ffa116;
+    background-color: #ffa21621;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -84,6 +95,89 @@
   }
   
   .headerRight button:hover {
-    background-color: #d25a51;
+    background-color: #ffa21643;
   }
   
+  /* Responsive Design */
+@media (max-width: 1200px) {
+  .interfaceContainer {
+    flex-direction: column;
+  }
+
+  .leftInt, .rightInt {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .headerLeft, .headerMiddle, .headerRight {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 900px) {
+  .leftInt, .rightInt {
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .headerLeft, .headerMiddle, .headerRight {
+    align-items: center;
+  }
+
+  .header {
+    padding: 0 15px;
+  }
+
+  .logo {
+    width: 25px;
+  }
+
+  .problemList {
+    font-size: 16px;
+  }
+
+  .headerMiddle button, .headerRight button {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  .codeAreaTextarea {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .leftInt, .rightInt {
+    width: 100%;
+  }
+
+  .header {
+    height: auto;
+    padding: 20px;
+  }
+
+  .headerLeft, .headerMiddle, .headerRight {
+    align-items: center;
+  }
+
+  .problemList {
+    font-size: 14px;
+  }
+
+  .headerMiddle button, .headerRight button {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .codeAreaTextarea {
+    font-size: 12px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+}

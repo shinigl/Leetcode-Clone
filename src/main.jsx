@@ -5,7 +5,7 @@ import App from './App.jsx'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom' ;
 import Interface from './components/Interface';
 import { createContext } from 'react';
-import Header from './components/Header.jsx';
+
 
 
 export const myContext = createContext() ;

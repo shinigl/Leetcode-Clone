@@ -61,11 +61,8 @@ function Interface() {
     }
   }
 
-  const difficultyClass = prob.Difficulty.toLowerCase();
-
-
-  
-
+  const difficultyClass = prob.Difficulty.toLowerCase(); //Difficulty class
+   
   return (
     <>
    
