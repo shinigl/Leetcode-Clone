@@ -1,11 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from '../styles/Discussion.module.css'; 
-import { Link,useNavigate } from 'react-router-dom'; 
+import { Link, useNavigate } from 'react-router-dom'; 
 import CommentCard from './CommentCard';
-import logo from '../assets/logo.png'
+import logo from '../assets/logo.png';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 
 // Sample data for the comments
 const Blogs = [
@@ -22,7 +21,7 @@ const Blogs = [
 ];
 
 function DiscussionPage() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [blogs, setBlogs] = useState(Blogs);
   const inputRef = useRef(null);
 
@@ -31,10 +30,9 @@ function DiscussionPage() {
   }, []);
 
   function postBlog() {
-    
-    if( inputRef.current.value.trim()===''){
-        toast.error('Please enter a comment')
-        return;
+    if (inputRef.current.value.trim() === '') {
+      toast.error('Please enter a comment');
+      return;
     }
 
     const date = new Date();
@@ -50,8 +48,8 @@ function DiscussionPage() {
     inputRef.current.value = ''; 
   }
 
-  function onSignIn(){
-    navigate('/login')
+  function onSignIn() {
+    navigate('/login');
   }
 
   return (
@@ -64,9 +62,11 @@ function DiscussionPage() {
             <Link to="/">Problem List</Link>
           </div>
         </div>
-     
         <button onClick={onSignIn} className={styles.signInButton}>Sign In</button>
       </header>
+
+      {/* Discussion Title */}
+      <h1 className={styles.title}>Discussion Area</h1>
 
       {/* Add New Comment */}
       <div className={styles.addBlog}>
@@ -84,9 +84,9 @@ function DiscussionPage() {
         {blogs.map((ele, idx) => (
           <CommentCard key={idx} data={ele} />
         ))}
-
       </div>
-      <ToastContainer/>
+
+      <ToastContainer />
     </>
   );
 }

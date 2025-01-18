@@ -3,6 +3,11 @@ import styles from '../styles/Login.module.css'; // Assuming your CSS is in this
 import GoogleLogo from '../assets/GoogleLogo.png'; // Assuming the Google logo is available
 
 const Login = () => {
+
+  function signUpWithGoogle(){
+    alert('Sign up')
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.loginBox}>
@@ -36,7 +41,7 @@ const Login = () => {
         {/* Link to Sign Up */}
         <div className={styles.signupLink}>
           <p>Don't have an account?</p>
-          <button className={styles.signupButton}>
+          <button onClick={signUpWithGoogle} className={styles.signupButton}>
             <span style={{display:'flex',alignItems:'center'}} ><img className={styles.googleLogo} src={GoogleLogo} alt="Google Logo" /></span>
             Sign up with Google
           </button>
