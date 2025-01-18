@@ -1,184 +1,191 @@
 /* Header */
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #2c2f33; /* Dark background for header */
-    padding: 0 30px;
-    height: 8vh;
-    box-sizing: border-box;
-    color: #eaeaea;
-  }
-  
-  /* Header Left */
-  .headerLeft {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-  }
-  
-  .logo {
-    width: 30px;
-    height: auto;
-    cursor: pointer;
-  }
-  
-  .problemList {
-    font-size: 18px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    color: #f5f5f5;
-  }
-  
-  .arrow {
-    margin-left: 10px;
-    font-size: 10px;
-    color: #fff;
-    border: 0.25px solid #fff;
-    cursor: pointer;
-    outline: none;
-  }
-  
-  .arrow:hover {
-    background-color: #444;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2c2f33; /* Dark background for header */
+  padding: 0 30px;
+  height: 8vh;
+  box-sizing: border-box;
+  color: #eaeaea;
+}
 
-  .arrow:focus{
-    outline: none;
-  }
-  
-  /* Header Middle */
-  .headerMiddle {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .headerMiddle button:nth-child(1) {
-    padding: 4px 16px;
-    font-size: 16px;
-    font-weight: 500;
-    background-color: #444444; 
-    border: none;
-    border-radius: 8px;
-    color: #28c244;
-    cursor: pointer;
-    transition: 0.3s ease;
-    outline: none;
-  }
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
 
-  .headerMiddle button:nth-child(2){
-    background-color: #444444; 
-    border: none;
-    color: #fff;
-    transition: 0.3s ease;
-  }
-  
-  .headerMiddle button:hover {
-    background-color: #545353;
-  }
-  
-  /* Header Right */
-  .headerRight {
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .headerRight button {
-    padding: 8px 16px;
-    font-size: 16px;
-    color: #ffa116;
-    background-color: #ffa21621;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s ease;
-  }
-  
-  .headerRight button:hover {
-    background-color: #ffa21643;
-  }
-  
-  /* Responsive Design */
+.logo {
+  width: 30px;
+  height: auto;
+  cursor: pointer;
+}
+
+.problemList {
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  color: #f5f5f5;
+}
+
+.arrow {
+  margin-left: 10px;
+  font-size: 10px;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+}
+
+.arrow:hover {
+  background-color: #444;
+}
+
+.arrow:focus {
+  outline: none;
+}
+
+/* Header Middle */
+.headerMiddle {
+  display: flex;
+  gap: 20px;
+}
+
+.headerMiddle button:nth-child(1) {
+  padding: 4px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #444444;
+  border: none;
+  border-radius: 8px;
+  color: #28c244;
+  cursor: pointer;
+  transition: 0.3s ease;
+  outline: none;
+}
+
+.headerMiddle button:nth-child(2) {
+  background-color: #444444;
+  border: none;
+  color: #fff;
+  transition: 0.3s ease;
+}
+
+.headerMiddle button:hover {
+  background-color: #545353;
+}
+
+/* Header Right */
+.headerRight {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.headerRight button {
+  padding: 8px 16px;
+  font-size: 16px;
+  color: #ffa116;
+  background-color: #ffa21621;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.headerRight button:hover {
+  background-color: #ffa21643;
+}
+
+/* Responsive Design */
+
+/* Medium Screens (1200px and below) */
 @media (max-width: 1200px) {
-  .interfaceContainer {
-    flex-direction: column;
-  }
-
-  .leftInt, .rightInt {
-    width: 100%;
-    margin-right: 0;
-    margin-bottom: 20px;
-  }
-
-  .headerLeft, .headerMiddle, .headerRight {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-}
-
-@media (max-width: 900px) {
-  .leftInt, .rightInt {
-    width: 100%;
-    padding-right: 10px;
-    padding-left: 10px;
-  }
-
-  .headerLeft, .headerMiddle, .headerRight {
-    align-items: center;
-  }
-
   .header {
-    padding: 0 15px;
+      padding: 0 15px;  /* Reduce padding */
+      height: 10vh;  /* Increase height if necessary */
+  }
+
+  .headerLeft, .headerMiddle, .headerRight {
+      flex-direction: row;
+      justify-content: space-between;
   }
 
   .logo {
-    width: 25px;
+      width: 25px; /* Resize logo */
   }
 
   .problemList {
-    font-size: 16px;
+      font-size: 16px;
   }
 
   .headerMiddle button, .headerRight button {
-    font-size: 14px;
-    padding: 6px 12px;
-  }
-
-  .codeAreaTextarea {
-    font-size: 14px;
+      font-size: 14px;
+      padding: 8px 12px;
   }
 }
 
-@media (max-width: 600px) {
-  .leftInt, .rightInt {
-    width: 100%;
-  }
-
+/* Small Screens (900px and below) */
+@media (max-width: 900px) {
   .header {
-    height: auto;
-    padding: 20px;
+      padding: 0 10px;
+      height: auto;
+      flex-direction: column;
+      justify-content: flex-start;
   }
 
   .headerLeft, .headerMiddle, .headerRight {
-    align-items: center;
+      width: 100%;
+      justify-content: center;
+      margin-bottom: 10px; /* Add some spacing */
+  }
+
+  .logo {
+      width: 30px; /* Keep logo size */
   }
 
   .problemList {
-    font-size: 14px;
+      font-size: 14px;
+      text-align: center; /* Center the problem list */
   }
 
   .headerMiddle button, .headerRight button {
-    font-size: 12px;
-    padding: 5px 10px;
+      font-size: 14px;
+      padding: 6px 10px;
   }
 
-  .codeAreaTextarea {
-    font-size: 12px;
+  .headerRight {
+      margin-top: 10px;
+  }
+}
+
+/* Extra Small Screens (600px and below) */
+@media (max-width: 600px) {
+  .header {
+      padding: 0 5px;
+      height: auto;
   }
 
-  h2 {
-    font-size: 24px;
+  .headerLeft, .headerMiddle, .headerRight {
+      width: 100%;
+      justify-content: center;
+      margin-bottom: 10px;
+  }
+
+  .logo {
+      width: 25px;
+  }
+
+  .problemList {
+      font-size: 14px;
+  }
+
+  .headerMiddle button, .headerRight button {
+      font-size: 12px;
+      padding: 5px 8px;
+  }
+
+  .headerRight {
+      margin-top: 10px;
   }
 }
