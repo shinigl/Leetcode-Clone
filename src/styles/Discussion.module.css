@@ -1,0 +1,102 @@
+.addBlog {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  background-color: #2e2a2a;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  max-width: 600px;
+  margin: 20px ;
+}
+
+.addBlog textarea {
+  background-color: #3b2f2f;
+  color: #f4e1a1;
+  border: 1px solid #555;
+  border-radius: 6px;
+  padding: 12px;
+  resize: none;
+  font-size: 14px;
+  outline: none;
+  min-height: 120px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.addBlog textarea:focus {
+  border-color: #f4e1a1;
+  background-color: #4d3a3a;
+}
+
+.addBlog button {
+  background-color: #ffcc00;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease, transform 0.2s ease;
+  font-size: 16px;
+}
+
+.addBlog button:hover {
+  background-color: #e6b800;
+  transform: translateY(-2px);
+}
+
+.commentSection {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.commentCard {
+  background-color: #3b2f2f;
+  padding: 20px;
+  border-radius: 8px;
+  color: #f4e1a1;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease;
+}
+
+.commentCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+.commentCard .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.commentCard .header .name {
+  font-weight: bold;
+  color: #fff;
+}
+
+.commentCard .header .date {
+  color: #bbb;
+  font-size: 12px;
+}
+
+.commentCard .content {
+  margin-top: 10px;
+  color: #ccc;
+  font-size: 14px;
+}
+
+.commentCard .header img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.addBlog textarea, .addBlog button {
+  margin-bottom: 15px;
+}

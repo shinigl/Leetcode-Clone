@@ -43,12 +43,16 @@ function Header() {
      }
   }
 
+  function onLogoClick(){
+       navigate('/discussion')
+  }
+
 
   return (
     <header className={styles.header}>
     {/* Left Section */}
     <div className={styles.headerLeft}>
-      <img className={styles.logo} src={logo} alt="Logo" />
+      <img onClick={onLogoClick} className={styles.logo} src={logo} alt="Logo" />
       <div className={styles.problemList}>
         <Link to='/'> Problem List </Link>
         <button className={styles.arrow} onClick={onPrevPage}>

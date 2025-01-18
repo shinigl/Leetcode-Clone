@@ -1,7 +1,6 @@
 import React, { useContext, useState, useRef, useEffect } from 'react';
 import { myContext } from '../main';
 import { useParams } from 'react-router-dom';
-
 import styles from '../styles/Interface.module.css';
 import * as monaco from 'monaco-editor';
 import Header from './Header';

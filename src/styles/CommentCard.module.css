@@ -1,0 +1,63 @@
+/* CommentCard.module.css */
+.commentCard {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 2px solid #fff;
+    width: 100%;
+    max-width: 1000px;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #2a2a2a;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .commentCard:hover {
+    background-color: #333;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+  }
+  
+  .commentCardHeader {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .commentCardHeader img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .commentCardHeader p {
+    font-size: 14px;
+    color: #bbb;
+  }
+  
+  .commentCardContent {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ddd;
+    margin-top: 10px;
+  }
+  
+  .commentCardContent p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .commentCardFooter {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #bbb;
+    text-align: right;
+  }
+  
+  .commentCardFooter .author {
+    font-weight: bold;
+    color: #fff;
+  }
+  

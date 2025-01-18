@@ -5,6 +5,7 @@ import App from './App.jsx'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom' ;
 import Interface from './components/Interface';
 import { createContext } from 'react';
+import DiscussionPage from './components/DiscussionPage.jsx';
 
 
 
@@ -19,7 +20,11 @@ const routes = createBrowserRouter([
   {
     path: '/interface/:id',
     element : <Interface/>
-  }
+  },
+  {
+    path: '/discussion',
+    element: <DiscussionPage/>
+  },
 
 ]);
 
