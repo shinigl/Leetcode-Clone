@@ -79,6 +79,7 @@ function DiscussionPage() {
         {blogs.map((ele, idx) => (
           <CommentCard key={idx} data={ele} />
         ))}
+
       </div>
       <ToastContainer/>
     </>

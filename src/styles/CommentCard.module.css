@@ -5,7 +5,6 @@
   gap: 12px;
   border: 1px solid #f4e1a1; /* Goldenrod border for a unique touch */
   width: 100%;
-  max-width: 900px;
   padding: 20px;
   border-radius: 12px;
   background-color: #3b2f2f; /* Darker background */
@@ -17,7 +16,7 @@
 
 /* Hover effect for CommentCard */
 .commentCard:hover {
-  background-color: #444; /* Slightly lighter when hovered */
+  background-color: #1f1e1e; /* Slightly lighter when hovered */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6); /* Stronger shadow */
   transform: translateY(-4px); /* Slight lift effect */
 }

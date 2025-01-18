@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useContext , useState } from 'react';
 import { myContext } from './main';
 import leetcodeLogo from './assets/logo.png';
+import Footer from './components/Footer';
 
 function App() {
   
@@ -84,6 +85,7 @@ function App() {
           }
         </div>
       </main>
+      <Footer/>
     </>
   );
 }

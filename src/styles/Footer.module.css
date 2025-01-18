@@ -1,0 +1,42 @@
+/* Footer.module.css */
+
+.footer {
+    background-color: #2a2a2a;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .name {
+    font-weight: bold;
+    color: #f4e1a1; /* Goldenrod color */
+  }
+  
+  .linkedinLink {
+    color: #0077b5; /* LinkedIn Blue */
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .linkedinLink:hover {
+    color: #005c8c; /* Darker LinkedIn Blue */
+  }
+  
+  .icon {
+    font-size: 20px;
+  }
+  
