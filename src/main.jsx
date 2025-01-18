@@ -6,6 +6,7 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom' ;
 import Interface from './components/Interface';
 import { createContext } from 'react';
 import DiscussionPage from './components/DiscussionPage.jsx';
+import Login from './components/Login.jsx';
 
 
 
@@ -25,7 +26,10 @@ const routes = createBrowserRouter([
     path: '/discussion',
     element: <DiscussionPage/>
   },
-
+  {
+    path: '/login',
+    element: <Login/>
+  }
 ]);
 
 const problemsArray = [

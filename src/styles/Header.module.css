@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #2c2f33; /* Dark background for header */
+  background-color: #2c2f33; 
   padding: 0 30px;
   height: 8vh;
   box-sizing: border-box;
@@ -112,7 +112,7 @@
   }
 
   .logo {
-      width: 25px; /* Resize logo */
+      width: 25px;
   }
 
   .problemList {

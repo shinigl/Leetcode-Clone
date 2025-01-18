@@ -12,7 +12,7 @@ function Header() {
     const ctx = useContext(myContext);
     const {id} = useParams();
     const [page, setPage] = useState(null);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
 
   useEffect(() => {
@@ -47,6 +47,10 @@ function Header() {
        navigate('/discussion')
   }
 
+   function onSignInClick(){
+    
+      navigate('/login')
+   }
 
   return (
     <header className={styles.header}>
@@ -72,7 +76,7 @@ function Header() {
 
     {/* Right Section */}
     <div className={styles.headerRight}>
-      <button>Sign In</button>
+      <button onClick={onSignInClick}>Sign In</button>
     </div>
   </header>
   )

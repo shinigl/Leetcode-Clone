@@ -1,0 +1,155 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1a1a1a; 
+  }
+  
+  .loginBox {
+    background: linear-gradient(to bottom, rgba(218, 165, 32, 0.761), black); /* Gradient for the login box */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #f4f4f4;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .inputGroup {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .inputGroup label {
+    font-size: 14px;
+    color: #f4f4f4;
+    margin-bottom: 5px;
+  }
+  
+  .inputGroup input {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #333;
+    color: #f4f4f4;
+  }
+  
+  .inputGroup input:focus {
+    outline: none;
+    border-color: goldenrod;
+  }
+  
+  .submitButton {
+    padding: 8px;
+    font-size: 16px;
+    background-color: goldenrod;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 30%;
+    margin: auto;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .submitButton:hover {
+    background-color: #e5a800da;
+  }
+  
+  .signupLink {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .signupButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 20px;
+    font-size: 15px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 70%;
+    transition: 0.3s ease;
+  }
+  
+  .signupButton:hover {
+    background-color: #3c3b3bc4;
+  }
+  
+  .googleLogo {
+    width: 20px;
+    margin-right: 10px;
+  }
+
+  /* Responsive Styles */
+
+/* On smaller screens, make the input fields and buttons full-width */
+@media (max-width: 480px) {
+    .loginBox {
+      padding: 20px;
+      max-width: 90%; /* Allow the form to take up more space on smaller screens */
+    }
+  
+    .title {
+      font-size: 20px; /* Reduce the font size of the title */
+    }
+  
+    .inputGroup input {
+      font-size: 14px; /* Make input font size smaller */
+      padding: 10px; /* Reduce padding inside inputs */
+    }
+  
+    .submitButton {
+      width: 50%; /* Increase the width of the submit button */
+      padding: 10px;
+    }
+  
+    .signupButton {
+      width: 90%; /* Make sign up button take more space */
+      font-size: 14px; /* Make text smaller */
+    }
+  
+    .signupLink {
+      font-size: 12px; /* Smaller font for sign up text */
+    }
+  }
+  
+  /* On medium screens (tablets), adjust the form width */
+  @media (max-width: 768px) {
+    .loginBox {
+      max-width: 90%;
+    }
+  
+    .submitButton {
+      width: 40%;
+    }
+  
+    .signupButton {
+      width: 80%;
+    }
+  }
+  

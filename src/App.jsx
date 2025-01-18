@@ -1,6 +1,6 @@
 import styles from './styles/App.module.css'
 import Card from './components/Card';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import { useContext , useState } from 'react';
 import { myContext } from './main';
 import leetcodeLogo from './assets/logo.png';
@@ -9,7 +9,7 @@ import Footer from './components/Footer';
 function App() {
   
   const ctx = useContext(myContext);
-
+  const navigate = useNavigate()
   const [searchProb , setSearchProb] = useState('');
   const [diff,setDiff] = useState('All');
 
@@ -34,6 +34,10 @@ function App() {
     setDiff(e.target.value)
   }
 
+  function onSignIn(){
+    navigate('/login')
+  }
+
   return (
     <>
       <main>
@@ -42,7 +46,7 @@ function App() {
             <img src={leetcodeLogo} alt="logo" />
             <p>Leetcode</p>
           </div>
-          <button id={styles.signInBtn}>Sign In</button>
+          <button onClick={onSignIn} id={styles.signInBtn}>Sign In</button>
         </header>
 
         <div className={styles.search}>

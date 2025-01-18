@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from '../styles/Discussion.module.css'; 
-import { Link } from 'react-router-dom'; 
+import { Link,useNavigate } from 'react-router-dom'; 
 import CommentCard from './CommentCard';
 import logo from '../assets/logo.png'
 import { ToastContainer, toast } from 'react-toastify';
@@ -22,6 +22,7 @@ const Blogs = [
 ];
 
 function DiscussionPage() {
+  const navigate = useNavigate()
   const [blogs, setBlogs] = useState(Blogs);
   const inputRef = useRef(null);
 
@@ -49,6 +50,10 @@ function DiscussionPage() {
     inputRef.current.value = ''; 
   }
 
+  function onSignIn(){
+    navigate('/login')
+  }
+
   return (
     <>
       {/* Header Section */}
@@ -60,7 +65,7 @@ function DiscussionPage() {
           </div>
         </div>
      
-        <button className={styles.signInButton}>Sign In</button>
+        <button onClick={onSignIn} className={styles.signInButton}>Sign In</button>
       </header>
 
       {/* Add New Comment */}
