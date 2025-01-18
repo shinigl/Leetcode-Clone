@@ -1,63 +1,126 @@
-/* CommentCard.module.css */
+/* Base styling for CommentCard */
 .commentCard {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    border: 2px solid #fff;
-    width: 100%;
-    max-width: 1000px;
-    padding: 15px;
-    border-radius: 8px;
-    background-color: #2a2a2a;
-    color: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .commentCard:hover {
-    background-color: #333;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
-  }
-  
-  .commentCardHeader {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-  }
-  
-  .commentCardHeader img {
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  
-  .commentCardHeader p {
-    font-size: 14px;
-    color: #bbb;
-  }
-  
-  .commentCardContent {
-    font-size: 16px;
-    line-height: 1.5;
-    color: #ddd;
-    margin-top: 10px;
-  }
-  
-  .commentCardContent p {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .commentCardFooter {
-    margin-top: 10px;
-    font-size: 12px;
-    color: #bbb;
-    text-align: right;
-  }
-  
-  .commentCardFooter .author {
-    font-weight: bold;
-    color: #fff;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid #f4e1a1; /* Goldenrod border for a unique touch */
+  width: 100%;
+  max-width: 900px;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #3b2f2f; /* Darker background */
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+/* Hover effect for CommentCard */
+.commentCard:hover {
+  background-color: #444; /* Slightly lighter when hovered */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6); /* Stronger shadow */
+  transform: translateY(-4px); /* Slight lift effect */
+}
+
+/* Header styling for CommentCard */
+.commentCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+}
+
+.commentCardHeader img {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #f4e1a1; /* Golden border around the avatar */
+}
+
+/* Username and Date Styling */
+.commentCardHeader .name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #f4e1a1; /* Goldenrod color for name */
+}
+
+.commentCardHeader .date {
+  font-size: 14px;
+  color: #bbb;
+  position: absolute;
+  bottom: -12px;
+  right: 0;
+}
+
+/* Content styling for the comment body */
+.commentCardContent {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #e1e1e1; /* Light grey color for comment content */
+  margin-top: 10px;
+}
+
+.commentCardContent p {
+  margin: 0;
+}
+
+/* Footer styling for the comment card (author and additional details) */
+.commentCardFooter {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #bbb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Author info at the footer */
+.commentCardFooter .author {
+  font-weight: bold;
+  color: #f4e1a1; /* Goldenrod author color */
+}
+
+/* Like and Share Buttons */
+.commentCardFooter .actions {
+  display: flex;
+  gap: 10px;
+}
+
+.commentCardFooter .actions button {
+  background-color: #f4e1a1; /* Goldenrod button */
+  color: #333;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease;
+}
+
+.commentCardFooter .actions button:hover {
+  background-color: #e6b800; /* Darker goldenrod on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+.commentCardFooter .actions button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+/* Optional background overlay on hover */
+.commentCard::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.1); /* Subtle dark overlay */
+  border-radius: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.commentCard:hover::after {
+  opacity: 1; /* Show the overlay on hover */
+}
