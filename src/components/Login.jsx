@@ -1,11 +1,24 @@
 import React from 'react';
-import styles from '../styles/Login.module.css'; // Assuming your CSS is in this file
-import GoogleLogo from '../assets/GoogleLogo.png'; // Assuming the Google logo is available
-
+import styles from '../styles/Login.module.css'; 
+import GoogleLogo from '../assets/GoogleLogo.png'; 
+import { signInWithPopup  } from "firebase/auth";
+import { googleAuthProvider } from "../firebase";
+import { auth } from '../firebase'
 const Login = () => {
 
-  function signUpWithGoogle(){
-    alert('Sign up')
+  async function signUpWithGoogle(){
+    try{
+        let res = await signInWithPopup(auth,googleAuthProvider)
+
+        const userDetails = {
+            userName : res.user.displayName ,
+            email : res.user.email
+        }
+    
+    }
+        catch(err){
+            console.log(err);
+        }
   }
 
   return (
