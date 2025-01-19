@@ -81,7 +81,7 @@ main {
 }
 
 
-#signInBtn{
+.signInButton{
     color: #ffa116;
     background-color: #ffa21621;
 }
@@ -152,6 +152,9 @@ h1 {
   box-sizing: border-box;
 }
 
+.logout{
+  color: goldenrod;
+}
 @media (max-width: 1200px) {
   .cardLink {
     width: 100%;

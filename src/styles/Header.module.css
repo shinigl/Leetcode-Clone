@@ -1,9 +1,9 @@
-/* Header */
+/* Header Styling */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #2c2f33; 
+  background-color: #2c2f33;
   padding: 0 30px;
   height: 8vh;
   box-sizing: border-box;
@@ -97,9 +97,40 @@
   background-color: #ffa21643;
 }
 
-.signInButton,.logout{
+/* Sign In and Logout */
+.signInButton, .logout {
   color: goldenrod;
- 
+  font-size: 14px;
+}
+
+.logoutContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.welcomeText {
+  font-size: 12px;
+}
+
+.userName {
+  color: goldenrod;
+}
+
+.logout {
+  color: goldenrod;
+  background-color: #333;
+  padding: 0px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+
+}
+
+.logout:hover {
+  background-color: #555;
 }
 
 /* Responsive Design */
@@ -107,90 +138,106 @@
 /* Medium Screens (1200px and below) */
 @media (max-width: 1200px) {
   .header {
-      padding: 0 15px;  /* Reduce padding */
-      height: 10vh;  /* Increase height if necessary */
+    padding: 0 15px;
+    height: 10vh;
   }
 
   .headerLeft, .headerMiddle, .headerRight {
-      flex-direction: row;
-      justify-content: space-between;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   .logo {
-      width: 25px;
+    width: 25px;
   }
 
   .problemList {
-      font-size: 16px;
+    font-size: 16px;
   }
 
   .headerMiddle button, .headerRight button {
-      font-size: 14px;
-      padding: 8px 12px;
+    font-size: 14px;
+    padding: 8px 12px;
   }
 }
 
 /* Small Screens (900px and below) */
 @media (max-width: 900px) {
   .header {
-      padding: 0 10px;
-      height: auto;
-      flex-direction: column;
-      justify-content: flex-start;
+    padding: 0 10px;
+    height: auto;
+    flex-direction: column;
+    justify-content: flex-start;
   }
 
   .headerLeft, .headerMiddle, .headerRight {
-      width: 100%;
-      justify-content: center;
-      margin-bottom: 10px; /* Add some spacing */
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
   }
 
   .logo {
-      width: 30px; /* Keep logo size */
+    width: 30px;
   }
 
   .problemList {
-      font-size: 14px;
-      text-align: center; /* Center the problem list */
+    font-size: 14px;
+    text-align: center;
   }
 
   .headerMiddle button, .headerRight button {
-      font-size: 14px;
-      padding: 6px 10px;
+    font-size: 14px;
+    padding: 6px 10px;
   }
 
   .headerRight {
-      margin-top: 10px;
+    margin-top: 10px;
+  }
+
+  /* Logout button responsiveness */
+  .logoutContainer {
+    align-items: center;
+    margin-top: 10px;
   }
 }
 
 /* Extra Small Screens (600px and below) */
 @media (max-width: 600px) {
   .header {
-      padding: 0 5px;
-      height: auto;
+    padding: 0 5px;
+    height: auto;
   }
 
   .headerLeft, .headerMiddle, .headerRight {
-      width: 100%;
-      justify-content: center;
-      margin-bottom: 10px;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
   }
 
   .logo {
-      width: 25px;
+    width: 25px;
   }
 
   .problemList {
-      font-size: 14px;
+    font-size: 14px;
   }
 
   .headerMiddle button, .headerRight button {
-      font-size: 12px;
-      padding: 5px 8px;
+    font-size: 12px;
+    padding: 5px 8px;
   }
 
   .headerRight {
-      margin-top: 10px;
+    margin-top: 10px;
+  }
+
+  .logoutContainer {
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .logout {
+    font-size: 12px;
+    padding: 6px 12px;
   }
 }

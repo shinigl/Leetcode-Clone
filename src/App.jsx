@@ -52,6 +52,15 @@ function App() {
   }
 },[])
 
+function onLogoutBtn(){
+  toast.info('Logging Out',{
+    autoClose:2000
+  })
+  setTimeout(()=>{
+  setLogin(false);
+  localStorage.removeItem('name');
+  },2000)
+}
 
   return (
     <>
@@ -62,10 +71,10 @@ function App() {
             <p>Leetcode</p>
           </div>
           {!isLoggedIn ? (<button onClick={onSignIn} className={styles.signInButton}>Sign In</button>) : (
-          <>
-          <p>{userName}</p>
-          <button>Logout</button>
-          </>)
+          <div style={{display:'flex',flexDirection:'column'}}>
+          <p style={{fontSize:'12px'}}>Hey! <span style={{color:'goldenrod'}}>{userName}</span></p>
+          <button className={styles.logout} onClick={onLogoutBtn}>Logout</button>
+          </div>)
           }
         </header>
 

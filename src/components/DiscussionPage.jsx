@@ -5,10 +5,7 @@ import CommentCard from './CommentCard';
 import logo from '../assets/logo.png';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { collection ,addDoc,updateDoc,getDoc,deleteDoc } from 'firebase/firestore';
-import { db } from '../firebase';
 
-// Sample data for the comments
 const Blogs = [
   { 'name': 'John Doe', 'comment': 'Nice solution! I think this is an optimal approach.', 'date': '20/10/2024' },
   { 'name': 'Jane Smith', 'comment': 'This approach seems a bit complicated. Can someone explain it in simpler terms?', 'date': '20/10/2024' },
@@ -24,8 +21,6 @@ const Blogs = [
 
 function DiscussionPage() {
 
-  // const commentCollection =  collection(db,'comments');
-  
   const navigate = useNavigate();
   const [blogs, setBlogs] = useState(Blogs);
   const inputRef = useRef(null);
@@ -35,15 +30,13 @@ function DiscussionPage() {
   }, []);
 
   const [isLoggedIn, setLogin] = useState(false);
+  const userName = localStorage.getItem('name');
 
-  const userName = localStorage.getItem('name')
-  console.log(userName);
   useEffect(() => {
     if (userName) {
       setLogin(true);
     }
-  }, [])
-
+  }, []);
 
   async function postBlog() {
     if (inputRef.current.value.trim() === '') {
@@ -53,12 +46,11 @@ function DiscussionPage() {
 
     const date = new Date();
     const formattedDate = date.toLocaleDateString();
-    let uName ;
-    if(userName){
+    let uName;
+    if (userName) {
       uName = userName;
-      
-    }else{
-       uName = 'Anonymous';
+    } else {
+      uName = 'Anonymous';
     }
     const copyArr = [...blogs];
     copyArr.unshift({
@@ -67,14 +59,24 @@ function DiscussionPage() {
       'date': formattedDate
     });
     setBlogs(copyArr);
-    // await addDoc(commentCollection,copyArr);
     inputRef.current.value = '';
   }
 
   function onSignIn() {
     navigate('/login');
   }
- 
+
+  function onLogoutBtn(){
+    toast.info('Logging Out',{
+      autoClose:2000
+    })
+    setTimeout(()=>{
+    setLogin(false);
+    localStorage.removeItem('name');
+    navigate('/');
+    },2000)
+  }
+
   return (
     <>
       {/* Header Section */}
@@ -85,14 +87,14 @@ function DiscussionPage() {
             <Link to="/">Problem List</Link>
           </div>
         </div>
-        {!isLoggedIn ? (<button onClick={onSignIn} className={styles.signInButton}>Sign In</button>) : (
-          <>
-          <p>{userName}</p>
-          <button>Logout</button>
-          </>)
-          }
-        
-
+        {!isLoggedIn ? (
+          <button onClick={onSignIn} className={styles.signInButton}>Sign In</button>
+        ) : (
+          <div className={styles.loginData}>
+            <p>Hey! {userName}</p>
+            <button onClick={onLogoutBtn} className={styles.logoutButton}>Logout</button>
+          </div>
+        )}
       </header>
 
       {/* Discussion Title */}
@@ -106,7 +108,7 @@ function DiscussionPage() {
           placeholder="Join the discussion..."
           ref={inputRef}
         />
-        <button onClick={postBlog}>Post</button>
+        <button onClick={postBlog} className={styles.postButton}>Post</button>
       </div>
 
       {/* Comments Section */}

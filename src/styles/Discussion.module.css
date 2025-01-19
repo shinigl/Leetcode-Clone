@@ -1,15 +1,9 @@
-/* Discussion.module.css */
-
 /* Header Styling */
-
-
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
   background-color: #2c2f33; /* Dark background for header */
-  
   padding: 0 30px;
   height: 8vh;
   box-sizing: border-box;
@@ -33,12 +27,8 @@
 }
 
 .problemList a {
-  
   text-decoration: none;
-
 }
-
-
 
 .signInButton {
   padding: 8px 16px;
@@ -55,6 +45,22 @@
   background-color: #ffa21643;
 }
 
+.logoutButton {
+  padding: 8px 16px;
+  font-size: 16px;
+  color: #ffa116;
+  background-color: #ffa21621;
+  
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.logoutButton:hover {
+  background-color: #ffa21638
+}
+
 .addBlog {
   display: flex;
   flex-direction: column;
@@ -64,7 +70,7 @@
   padding: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
   max-width: 600px;
-  margin: 20px ;
+  margin: 20px;
   justify-content: center;
   align-items: center;
 }
@@ -89,7 +95,7 @@
   background-color: #4d3a3a;
 }
 
-.addBlog button {
+.postButton {
   background-color: #ffcc00ba;
   color: #fff;
   border: none;
@@ -101,17 +107,17 @@
   font-size: 16px;
   width: 100px;
   outline: none;
-
 }
 
-.addBlog button:hover {
+.postButton:hover {
   background-color: #e6b800;
   transform: translateY(-2px);
 }
 
-.addBlog button:active{
+.postButton:active {
   outline: none;
 }
+
 .title {
   font-size: 36px;
   font-weight: 700;
@@ -131,14 +137,12 @@
   margin-bottom: 50px;
 }
 
-
 .commentSection {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 0 20px;
-
 }
 
 .commentCard {
@@ -159,6 +163,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+ 
 }
 
 .commentCard .header .name {
@@ -183,6 +188,47 @@
   border-radius: 50%;
 }
 
-.addBlog textarea, .addBlog button {
+.addBlog textarea,
+.addBlog button {
   margin-bottom: 15px;
+}
+
+.loginData {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    height: auto;
+    padding: 15px;
+  }
+
+  .logo {
+    width: 40px;
+  }
+  .addBlog textarea{
+    max-width: 250px;
+  }
+  .problemList {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+  .addBlog {
+    width: 80%;
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 28px;
+    width: 90%;
+  }
+
+  .commentSection {
+    padding: 10px;
+  }
 }
