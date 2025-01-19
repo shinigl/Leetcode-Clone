@@ -2,19 +2,17 @@ import React from 'react';
 import styles from '../styles/Login.module.css'; 
 import GoogleLogo from '../assets/GoogleLogo.png'; 
 import { signInWithPopup  } from "firebase/auth";
-import { googleAuthProvider } from "../firebase";
+import { googleAuthProvider } from '../firebase';
 import { auth } from '../firebase'
+import {useNavigate} from 'react-router-dom'
 const Login = () => {
-
+  const navigate = useNavigate()
   async function signUpWithGoogle(){
     try{
-        let res = await signInWithPopup(auth,googleAuthProvider)
-
-        const userDetails = {
-            userName : res.user.displayName ,
-            email : res.user.email
-        }
-    
+        let res = await signInWithPopup(auth,googleAuthProvider);
+        localStorage.setItem('name',res.user.displayName);
+        navigate('/');
+      
     }
         catch(err){
             console.log(err);
@@ -56,7 +54,7 @@ const Login = () => {
           <p>Don't have an account?</p>
           <button onClick={signUpWithGoogle} className={styles.signupButton}>
             <span style={{display:'flex',alignItems:'center'}} ><img className={styles.googleLogo} src={GoogleLogo} alt="Google Logo" /></span>
-            Sign up with Google
+            Sign in with Google
           </button>
         </div>
       </div>

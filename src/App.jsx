@@ -1,10 +1,13 @@
 import styles from './styles/App.module.css'
 import Card from './components/Card';
 import { Link,useNavigate } from 'react-router-dom';
-import { useContext , useState } from 'react';
+import { useContext , useState ,useEffect} from 'react';
 import { myContext } from './main';
 import leetcodeLogo from './assets/logo.png';
 import Footer from './components/Footer';
+import { db } from './firebase';
+import { auth } from './firebase';
+
 
 function App() {
   
@@ -12,6 +15,7 @@ function App() {
   const navigate = useNavigate()
   const [searchProb , setSearchProb] = useState('');
   const [diff,setDiff] = useState('All');
+ 
 
 
   const filteredProbs = ctx.filter((ele) =>{
@@ -38,6 +42,17 @@ function App() {
     navigate('/login')
   }
 
+  const[isLoggedIn , setLogin] = useState(false);
+    
+  const userName = localStorage.getItem('name')
+  console.log(userName);
+  useEffect(()=>{
+  if(userName){
+    setLogin(true); 
+  }
+},[])
+
+
   return (
     <>
       <main>
@@ -46,7 +61,12 @@ function App() {
             <img src={leetcodeLogo} alt="logo" />
             <p>Leetcode</p>
           </div>
-          <button onClick={onSignIn} id={styles.signInBtn}>Sign In</button>
+          {!isLoggedIn ? (<button onClick={onSignIn} className={styles.signInButton}>Sign In</button>) : (
+          <>
+          <p>{userName}</p>
+          <button>Logout</button>
+          </>)
+          }
         </header>
 
         <div className={styles.search}>

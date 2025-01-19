@@ -1,24 +1,29 @@
+
+
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import {getAuth , GoogleAuthProvider} from 'firebase/auth' ;
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import {getFirestore} from 'firebase/firestore'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCcEhByrMLHs18bxuG30D43PBW8ET7oYWA",
-  authDomain: "authentication-project-5a3e2.firebaseapp.com",
-  projectId: "authentication-project-5a3e2",
-  storageBucket: "authentication-project-5a3e2.firebasestorage.app",
-  messagingSenderId: "812944915361",
-  appId: "1:812944915361:web:c11efab3415017498de9e0"
+  apiKey: "AIzaSyCi34auMYlKT-iG_2frzvPHQVE2gezQV1w",
+  authDomain: "leetcode-cb9df.firebaseapp.com",
+  projectId: "leetcode-cb9df",
+  storageBucket: "leetcode-cb9df.firebasestorage.app",
+  messagingSenderId: "220765056813",
+  appId: "1:220765056813:web:1731b9543ae585caa66da4"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
-//Write the code to initialize specific service (authorization for now)
-
-export const auth = getAuth(app); //Authentication enabled
-
+export const auth = getAuth(app);
 export const googleAuthProvider = new GoogleAuthProvider();
+
+export default app;
+
+//Database
+export const db = getFirestore(app);

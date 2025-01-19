@@ -14,6 +14,16 @@ function Header() {
     const [page, setPage] = useState(null);
     const navigate = useNavigate();
 
+    const[isLoggedIn , setLogin] = useState(false);
+    
+    const userName = localStorage.getItem('name')
+    useEffect(()=>{
+    if(userName){
+      setLogin(true); 
+    }
+  },[])
+
+
 
   useEffect(() => {
     // Ensure page is set after URL parameter (`id`) is available
@@ -52,6 +62,11 @@ function Header() {
       navigate('/login')
    }
 
+   function onLogoutBtn(){
+     setLogin(false);
+     localStorage.removeItem('name');
+   }
+
   return (
     <header className={styles.header}>
     {/* Left Section */}
@@ -75,9 +90,13 @@ function Header() {
     </div>
 
     {/* Right Section */}
-    <div className={styles.headerRight}>
-      <button onClick={onSignInClick}>Sign In</button>
-    </div>
+    {!isLoggedIn ? (<button onClick={onSignInClick} className={styles.signInButton}>Sign In</button>) : (
+          <>
+          <p>{userName}</p>
+          <button className={styles.logout} onClick={onLogoutBtn}>Logout</button>
+          </>)
+          }
+   
   </header>
   )
 }

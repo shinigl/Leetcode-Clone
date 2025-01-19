@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
-import styles from '../styles/Discussion.module.css'; 
-import { Link, useNavigate } from 'react-router-dom'; 
+import styles from '../styles/Discussion.module.css';
+import { Link, useNavigate } from 'react-router-dom';
 import CommentCard from './CommentCard';
 import logo from '../assets/logo.png';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { collection ,addDoc,updateDoc,getDoc,deleteDoc } from 'firebase/firestore';
+import { db } from '../firebase';
 
 // Sample data for the comments
 const Blogs = [
@@ -21,6 +23,9 @@ const Blogs = [
 ];
 
 function DiscussionPage() {
+
+  // const commentCollection =  collection(db,'comments');
+  
   const navigate = useNavigate();
   const [blogs, setBlogs] = useState(Blogs);
   const inputRef = useRef(null);
@@ -29,7 +34,18 @@ function DiscussionPage() {
     inputRef.current.focus();
   }, []);
 
-  function postBlog() {
+  const [isLoggedIn, setLogin] = useState(false);
+
+  const userName = localStorage.getItem('name')
+  console.log(userName);
+  useEffect(() => {
+    if (userName) {
+      setLogin(true);
+    }
+  }, [])
+
+
+  async function postBlog() {
     if (inputRef.current.value.trim() === '') {
       toast.error('Please enter a comment');
       return;
@@ -37,21 +53,28 @@ function DiscussionPage() {
 
     const date = new Date();
     const formattedDate = date.toLocaleDateString();
-    const userName = 'Anonymous';
+    let uName ;
+    if(userName){
+      uName = userName;
+      
+    }else{
+       uName = 'Anonymous';
+    }
     const copyArr = [...blogs];
     copyArr.unshift({
-      'name': userName,
+      'name': uName,
       'comment': inputRef.current.value,
       'date': formattedDate
     });
     setBlogs(copyArr);
-    inputRef.current.value = ''; 
+    // await addDoc(commentCollection,copyArr);
+    inputRef.current.value = '';
   }
 
   function onSignIn() {
     navigate('/login');
   }
-
+ 
   return (
     <>
       {/* Header Section */}
@@ -62,7 +85,14 @@ function DiscussionPage() {
             <Link to="/">Problem List</Link>
           </div>
         </div>
-        <button onClick={onSignIn} className={styles.signInButton}>Sign In</button>
+        {!isLoggedIn ? (<button onClick={onSignIn} className={styles.signInButton}>Sign In</button>) : (
+          <>
+          <p>{userName}</p>
+          <button>Logout</button>
+          </>)
+          }
+        
+
       </header>
 
       {/* Discussion Title */}
@@ -70,11 +100,11 @@ function DiscussionPage() {
 
       {/* Add New Comment */}
       <div className={styles.addBlog}>
-        <textarea 
-          name="Add Comment" 
-          id="comment" 
-          placeholder="Join the discussion..." 
-          ref={inputRef} 
+        <textarea
+          name="Add Comment"
+          id="comment"
+          placeholder="Join the discussion..."
+          ref={inputRef}
         />
         <button onClick={postBlog}>Post</button>
       </div>

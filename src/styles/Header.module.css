@@ -97,6 +97,11 @@
   background-color: #ffa21643;
 }
 
+.signInButton,.logout{
+  color: goldenrod;
+ 
+}
+
 /* Responsive Design */
 
 /* Medium Screens (1200px and below) */
