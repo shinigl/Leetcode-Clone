@@ -5,8 +5,6 @@ import { useContext , useState ,useEffect} from 'react';
 import { myContext } from './main';
 import leetcodeLogo from './assets/logo.png';
 import Footer from './components/Footer';
-import { db } from './firebase';
-import { auth } from './firebase';
 import { ToastContainer } from 'react-toastify';
 import { toast } from 'react-toastify';
 
