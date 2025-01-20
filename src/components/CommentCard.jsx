@@ -10,7 +10,7 @@ function CommentCard(props) {
           src="https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659652_640.png" 
           alt="avatar"
         />
-        <p>{props.data.date}</p>
+        <p>{props.data.name}</p>
       </div>
 
       <div className={styles.commentCardContent}>
@@ -18,7 +18,7 @@ function CommentCard(props) {
       </div>
 
       <div className={styles.commentCardFooter}>
-        <span className={styles.author}>{props.data.name}</span>
+        <span className={styles.author}>{props.data.date}</span>
       </div>
     </div>
   );
