@@ -3,11 +3,11 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  border: 1px solid #f4e1a1; /* Goldenrod border for a unique touch */
-  width: 100%;
+  border: 1px solid #f4e1a1;
+  width: 45%;
   padding: 20px;
   border-radius: 12px;
-  background-color: #3b2f2f; /* Darker background */
+  background-color: #3b2f2f;
   color: #fff;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
   transition: all 0.3s ease-in-out;
@@ -16,9 +16,9 @@
 
 /* Hover effect for CommentCard */
 .commentCard:hover {
-  background-color: #1f1e1e; /* Slightly lighter when hovered */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6); /* Stronger shadow */
-  transform: translateY(-4px); /* Slight lift effect */
+  background-color: #1f1e1e;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  transform: translateY(-4px);
 }
 
 /* Header styling for CommentCard */
@@ -34,14 +34,14 @@
   width: 45px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #f4e1a1; /* Golden border around the avatar */
+  border: 2px solid #f4e1a1;
 }
 
 /* Username and Date Styling */
 .commentCardHeader .name {
   font-size: 16px;
   font-weight: bold;
-  color: #f4e1a1; /* Goldenrod color for name */
+  color: #f4e1a1;
 }
 
 .commentCardHeader .date {
@@ -56,7 +56,7 @@
 .commentCardContent {
   font-size: 16px;
   line-height: 1.6;
-  color: #e1e1e1; /* Light grey color for comment content */
+  color: #e1e1e1;
   margin-top: 10px;
 }
 
@@ -77,7 +77,7 @@
 /* Author info at the footer */
 .commentCardFooter .author {
   font-weight: bold;
-  color: #f4e1a1; /* Goldenrod author color */
+  color: #f4e1a1;
 }
 
 /* Like and Share Buttons */
@@ -87,7 +87,7 @@
 }
 
 .commentCardFooter .actions button {
-  background-color: #f4e1a1; /* Goldenrod button */
+  background-color: #f4e1a1;
   color: #333;
   border: none;
   padding: 8px 14px;
@@ -97,8 +97,8 @@
 }
 
 .commentCardFooter .actions button:hover {
-  background-color: #e6b800; /* Darker goldenrod on hover */
-  transform: translateY(-2px); /* Slight lift effect */
+  background-color: #e6b800;
+  transform: translateY(-2px);
 }
 
 .commentCardFooter .actions button:disabled {
@@ -114,12 +114,48 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.1); /* Subtle dark overlay */
+  background-color: rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
 
 .commentCard:hover::after {
-  opacity: 1; /* Show the overlay on hover */
+  opacity: 1;
+}
+
+/* Responsive Design */
+
+/* Medium Screens (1200px and below) */
+@media (max-width: 1200px) {
+  .commentCard {
+    width: 48%; /* Adjust width to 48% for medium screens */
+  }
+}
+
+/* Small Screens (900px and below) */
+@media (max-width: 900px) {
+  .commentCard {
+    width: 100%; /* Make cards take full width on small screens */
+  }
+  .commentCardFooter {
+    font-size: 12px;
+    flex-direction: column; /* Stack footer content */
+    gap: 8px; /* Add spacing between items */
+  }
+  .commentCardFooter .actions {
+    flex-direction: column; /* Stack action buttons vertically */
+    align-items: center; /* Center buttons */
+  }
+  .commentCardFooter .actions button {
+    width: 100%; /* Make buttons full width */
+    text-align: center;
+  }
+}
+
+/* Extra Small Screens (600px and below) */
+@media (max-width: 600px) {
+  .commentCard {
+    width: 100%; /* Cards take full width on very small screens */
+  }
 }

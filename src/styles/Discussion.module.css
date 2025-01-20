@@ -70,9 +70,10 @@
   padding: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
   max-width: 600px;
-  margin: 20px;
-  justify-content: center;
-  align-items: center;
+  margin: 20px ;
+  margin: auto;
+  margin-bottom: 20px;
+  
 }
 
 .addBlog textarea {
@@ -86,7 +87,7 @@
   outline: none;
   min-height: 100px;
   width: 100%;
-  max-width: 100%;
+  max-width: 100%;;
   box-sizing: border-box;
 }
 
@@ -138,11 +139,16 @@
 }
 
 .commentSection {
+  
   margin-top: 20px;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 20px;
   padding: 0 20px;
+  max-width: 1200px;
+  justify-content: center;
+  margin: auto;
+  
 }
 
 .commentCard {

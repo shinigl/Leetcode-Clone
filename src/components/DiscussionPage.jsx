@@ -60,6 +60,9 @@ function DiscussionPage() {
     });
     setBlogs(copyArr);
     inputRef.current.value = '';
+    toast.success('Comment Posted',{
+      autoClose:1000
+    })
   }
 
   function onSignIn() {
