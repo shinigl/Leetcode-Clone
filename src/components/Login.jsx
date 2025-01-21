@@ -51,7 +51,7 @@ const Login = () => {
 
         {/* Link to Sign Up */}
         <div className={styles.signupLink}>
-          <p>Don't have an account?</p>
+          <p>Don't have an account?<span> Sign Up</span></p>
           <button onClick={signUpWithGoogle} className={styles.signupButton}>
             <span style={{display:'flex',alignItems:'center'}} ><img className={styles.googleLogo} src={GoogleLogo} alt="Google Logo" /></span>
             Sign in with Google
