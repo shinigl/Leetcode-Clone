@@ -1,5 +1,7 @@
 # LeetCode Clone
 
+![backgroundPhoto](./src/assets/leetcodeBg.png)
+
 ## Overview
 
 **LeetCode Clone** is a web application that mimics the core functionality of the popular coding platform **LeetCode**. Users can access coding problems, attempt to solve them in an embedded **Monaco Editor**, and participate in discussions by posting and reading comments. The platform integrates **Firebase Authentication** for secure login and provides real-time commenting on each problem.
